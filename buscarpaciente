@@ -1,0 +1,39 @@
+<?php 
+
+
+$folio = $_POST['folio'];
+
+
+
+$consulta = $conexion->prepare("SELECT * FROM paciente WHERE folio=:xfolio");
+
+
+$consulta->bindParam(':xfolio',$folio);
+$consulta->execute();
+
+
+if($consulta->rowCount()>=1)
+{
+
+
+while($fila=$consulta->fetch())
+{
+
+
+
+//session_start();
+
+	//header("location: citas.php");
+	//echo "Datos encontrados";
+echo "hola, si encontro el dato";
+
+}
+}
+
+else
+{
+	//header("location: citas.php");
+	echo "Datos no encontrados";
+}
+
+ ?>
